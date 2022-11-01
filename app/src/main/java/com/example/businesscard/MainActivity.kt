@@ -79,11 +79,11 @@ fun BusinessCard() {
                 contentDescription = null,
                 modifier = Modifier
                     .size(180.dp)
-                    .border(BorderStroke(2.dp, Color.Black))
+                    .border(BorderStroke(5.dp, Color(139, 111, 122)))
             )
         }
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-            MainText("N707", "Beginner Android Developer ")
+            MainText("N707", "Beginner Kotlin Developer ")
 
         }
     }
@@ -95,7 +95,7 @@ fun MainText(myName: String, myProfession: String) {
         Text(
             text = myName,
             textAlign = TextAlign.Center,
-            color = Color.Magenta,
+            color = Color(139, 111, 222),
             modifier = Modifier
                 .padding(5.dp),
             fontWeight = FontWeight.ExtraBold,
@@ -106,34 +106,76 @@ fun MainText(myName: String, myProfession: String) {
             Text(
                 text = myProfession,
                 textAlign = TextAlign.Center,
-                color = Color.Cyan,
+                color = Color(139, 111, 222),
                 fontSize = 20.sp,
-
+                modifier = Modifier.padding(3.dp),
 
                 )
         }
-        MyContacts("ad", "asd", "asd")
+        MyContacts("+79997070707", "@TheOfficial707", "707VLAN@gmail.com")
 
     }
 }
 
 @Composable
 fun MyContacts(number: String, telegram: String, email: String) {
-    Icon(
-        Icons.Outlined.PhoneInTalk,
-        contentDescription = null,
-        tint = Color(red = 233, 150, 122)
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(10.dp)
+    ) {
+        Icon(
+            Icons.Outlined.PhoneInTalk,
+            modifier = Modifier.fillMaxWidth(0.5f),
+            contentDescription = null,
+            tint = Color(red = 233, 150, 122)
+        )
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = number,
+            textAlign = TextAlign.Start,
+            color = Color(red = 233, 150, 122),
+        )
+    }
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(10.dp)
+    ) {
+        Icon(
+            Icons.Default.Send,
+            modifier = Modifier.fillMaxWidth(0.5f),
+            contentDescription = null,
+            tint = Color(red = 233, 150, 122)
+        )
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = telegram,
+            textAlign = TextAlign.Start,
+            color = Color(red = 233, 150, 122),
+
+        )
+    }
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(10.dp)
     )
-    Icon(
-        Icons.Default.Send,
-        contentDescription = null,
-        tint = Color(red = 233, 150, 122)
-    )
-    Icon(
-        Icons.Outlined.Mail,
-        contentDescription = null,
-        tint = Color(red = 233, 150, 122)
-    )
+    {
+        Icon(
+            Icons.Outlined.Mail,
+            modifier = Modifier.fillMaxWidth(0.5f),
+            contentDescription = null,
+            tint = Color(red = 233, 150, 122)
+        )
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = email,
+            textAlign = TextAlign.Start,
+            color = Color(red = 233, 150, 122),
+
+            )
+    }
 
 }
 

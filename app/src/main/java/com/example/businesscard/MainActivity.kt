@@ -72,7 +72,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun BusinessCard() {
     Column(modifier = Modifier.fillMaxSize()
-        .background(color = Color(74, 189, 175)),
+        .background(color = Color(74, 100, 100)),
         verticalArrangement = Arrangement.Center,
     ) {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {

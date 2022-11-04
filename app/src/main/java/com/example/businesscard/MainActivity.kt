@@ -8,6 +8,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -41,6 +42,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -59,9 +61,7 @@ class MainActivity : ComponentActivity() {
             BusinessCardTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
+                    modifier = Modifier.fillMaxSize(),) {
                     BusinessCard()
                 }
             }
@@ -71,7 +71,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun BusinessCard() {
-    Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center) {
+    Column(modifier = Modifier.fillMaxSize()
+        .background(color = Color(74, 189, 175)),
+        verticalArrangement = Arrangement.Center,
+    ) {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
             val image = painterResource(R.drawable.android_logo)
             Image(
@@ -92,7 +95,7 @@ fun BusinessCard() {
 @Composable
 fun MainText(myName: String, myProfession: String) {
     Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = CenterHorizontally) {
-        Text(
+            Text(
             text = myName,
             textAlign = TextAlign.Center,
             color = Color(139, 111, 222),
@@ -122,36 +125,37 @@ fun MyContacts(number: String, telegram: String, email: String) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(10.dp)
+            .padding(5.dp)
+
     ) {
         Icon(
             Icons.Outlined.PhoneInTalk,
-            modifier = Modifier.fillMaxWidth(0.5f),
+            modifier = Modifier.fillMaxWidth(0.25f),
             contentDescription = null,
             tint = Color(red = 233, 150, 122)
         )
         Text(
             modifier = Modifier.fillMaxWidth(),
             text = number,
-            textAlign = TextAlign.Start,
+            textAlign = TextAlign.Center,
             color = Color(red = 233, 150, 122),
         )
     }
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(10.dp)
+            .padding(5.dp)
     ) {
         Icon(
             Icons.Default.Send,
-            modifier = Modifier.fillMaxWidth(0.5f),
+            modifier = Modifier.fillMaxWidth(0.25f),
             contentDescription = null,
             tint = Color(red = 233, 150, 122)
         )
         Text(
             modifier = Modifier.fillMaxWidth(),
             text = telegram,
-            textAlign = TextAlign.Start,
+            textAlign = TextAlign.Center,
             color = Color(red = 233, 150, 122),
 
         )
@@ -159,19 +163,19 @@ fun MyContacts(number: String, telegram: String, email: String) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(10.dp)
+            .padding(5.dp)
     )
     {
         Icon(
             Icons.Outlined.Mail,
-            modifier = Modifier.fillMaxWidth(0.5f),
+            modifier = Modifier.fillMaxWidth(0.25f),
             contentDescription = null,
             tint = Color(red = 233, 150, 122)
         )
         Text(
             modifier = Modifier.fillMaxWidth(),
             text = email,
-            textAlign = TextAlign.Start,
+            textAlign = TextAlign.Center,
             color = Color(red = 233, 150, 122),
 
             )
@@ -179,14 +183,6 @@ fun MyContacts(number: String, telegram: String, email: String) {
 
 }
 
-
-@Composable
-fun BusinessCardText(name: String) {
-    Column {
-
-
-    }
-}
 
 
 @Preview(showBackground = true)
